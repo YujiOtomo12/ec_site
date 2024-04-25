@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>Published on:</strong>
+  <%= @book.published_on %>
+</p>
+
+<p>
+  <strong>Showing:</strong>
+  <%= @book.showing %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @book.price %>
+</p>
+
+  <p>
+    <strong>タグ</strong>
+    <%= @book.tags.map(&:name).join(', ') %>
+  </p>
+
+<%= link_to '買い物かごに入れる', line_items_path(book_id: @book.id), data: { "turbo-method": :post } %>
+<%= link_to 'Back', products_path %>

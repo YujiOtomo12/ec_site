@@ -1,0 +1,53 @@
+<%= form_with(model: @order, local: true) do |form| %>
+    <% if @order.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@order.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+          <ul>
+            <% @order.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+<%# @books.each do |book| %>
+<!--    <div class="field"> -->
+      <%#= form.hidden_field :book_id, value: book.id %>
+<!--    </div>-->
+<%# end %>
+
+    <div class="field">
+      <%= form.hidden_field :count, value: @current_cart.total_number %>
+    </div>
+
+    <% @line_items.each do |line_item| %>
+      <% book = line_item.book %>
+      <div>
+        <p><%= book.title %></p>
+        <p><%= line_item.quantity %>冊</p>
+        <p>
+          <%= line_item.total_price %>
+          <span>円 (税込)</span>
+        </p>
+      </div>
+    <% end %>
+    
+    <div>
+      <p>合計 <%= @current_cart.total_number %><span>冊</span></p>
+      <p>
+        <%= @current_cart.total_price %>
+        <span>円 (税込)</span>
+      </p>
+    </div>
+
+    <div class="field">
+      <p><%= form.label :address %></p>
+      <%= @order.address %>
+      <%= form.hidden_field :address %>
+    </div>
+        
+    <div class="actions">
+      <%= form.submit '注文' %>
+    </div>
+<% end %>
