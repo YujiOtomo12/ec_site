@@ -74,7 +74,7 @@ group :test do
 end
 
 group :production do # 追加
-  gem "pg", "~> 1.4" # 追加
+  gem 'pg', '~> 1.5.6' # 追加
 end # 追加
 
 gem "devise"
