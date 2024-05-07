@@ -7,7 +7,6 @@ services:
   - type: web
     name: ec_site
     env: ruby
-    region: singapore
     plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec rails server"
