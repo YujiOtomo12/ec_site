@@ -2,14 +2,11 @@ databases:
   - name: example_DB
     databaseName: example_db_dgjo
     user: example_db_dgjo_user
-    region: singapore
 
 services:
   - type: web
     name: ec_site
     env: ruby
-    region: singapore
-    plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
