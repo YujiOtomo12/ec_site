@@ -1,14 +1,14 @@
 databases:
   - name: example_DB
-    databaseName: example_db_dgjo
-    user: example_db_dgjo_user
+    databaseName: example_db_8qx8
+    user: example_db_8qx8_user
 
 services:
   - type: web
     name: ec_site
     env: ruby
     buildCommand: "./bin/render-build.sh"
-    startCommand: "bundle exec rails server"
+    startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -16,5 +16,3 @@ services:
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
-      - key: WEB_CONCURRENCY
-        value: 2
