@@ -1,7 +1,7 @@
 databases:
   - name: ec_site
-    databaseName: example_db_sph0
-    user: example_db_sph0_user
+    databaseName: example_db_dgjo
+    user: example_db_dgjo_user
     region: singapore
 
 services:
