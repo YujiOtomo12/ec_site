@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: example_DB
+    name: ec_site
     env: ruby
     region: singapore
     plan: free
